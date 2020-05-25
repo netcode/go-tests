@@ -32,5 +32,39 @@ func TestSumAll(t *testing.T) {
 			t.Errorf("Got %v, expected %v", got, expected)
 		}
 	})
+	t.Run("Test SumAllTails for empty array", func(t *testing.T) {
+		got := SumAll([]int{}, []int{3, 2, 3})
+		expected := []int{0, 8}
+		if !reflect.DeepEqual(got, expected) {
+			t.Errorf("Got %v, expected %v", got, expected)
+		}
+	})
+
+}
+
+func TestSumAllTails(t *testing.T) {
+	t.Run("Test SumAllTails for multiple arrays", func(t *testing.T) {
+		got := SumAllTails([]int{1, 2}, []int{0, 9, 1})
+		expected := []int{2, 10}
+		if !reflect.DeepEqual(got, expected) {
+			t.Errorf("Got %v, expected %v", got, expected)
+		}
+	})
+
+	t.Run("Test SumAllTails for single array", func(t *testing.T) {
+		got := SumAllTails([]int{3, 2, 3})
+		expected := []int{5}
+		if !reflect.DeepEqual(got, expected) {
+			t.Errorf("Got %v, expected %v", got, expected)
+		}
+	})
+
+	t.Run("Test SumAllTails for empty array", func(t *testing.T) {
+		got := SumAllTails([]int{}, []int{3, 2, 3})
+		expected := []int{0, 5}
+		if !reflect.DeepEqual(got, expected) {
+			t.Errorf("Got %v, expected %v", got, expected)
+		}
+	})
 
 }

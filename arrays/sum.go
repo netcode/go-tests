@@ -2,8 +2,8 @@ package main
 
 import "fmt"
 
-//Sum of 5 numbers
-func Sum(numbers [5]int) int {
+//Sum of any numbers
+func Sum(numbers []int) int {
 	var total int
 	for _, i := range numbers {
 		total += i
@@ -11,6 +11,16 @@ func Sum(numbers [5]int) int {
 	return total
 }
 
+//SumAll arrays and return array with the result
+func SumAll(numbersToSum ...[]int) []int {
+	var sums []int
+	for _, numbers := range numbersToSum {
+		sums = append(sums, Sum(numbers))
+	}
+	return sums
+}
+
 func main() {
-	fmt.Println("Hello Sum")
+	total := Sum([]int{1, 2, 3})
+	fmt.Println("Hello Sum", total)
 }
